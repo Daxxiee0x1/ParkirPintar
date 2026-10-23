@@ -47,17 +47,6 @@ Tabel berikut menunjukkan modul yang memanggil atau mengirim data ke modul lain.
 | 8 | [05 Denda](05-Denda.md) | [02 Tarif & Kalkulasi](02-Tarif-Kalkulasi.md) | Menggunakan tarif dasar untuk menghitung denda |
 | 9 | [05 Denda](05-Denda.md) | [03 Pembayaran](03-Pembayaran.md) | Meneruskan tagihan denda untuk dibayar |
 
-### Ringkasan per Modul
-
-| Modul | Memanggil | Dipanggil oleh |
-|-------|-----------|----------------|
-| [01 Check-In & Check-Out](01-CheckIn-CheckOut.md) | [02](02-Tarif-Kalkulasi.md), [03](03-Pembayaran.md), [04](04-Memberships.md), [05](05-Denda.md), [06](06-Laporan.md) | - |
-| [02 Tarif & Kalkulasi](02-Tarif-Kalkulasi.md) | - | [01](01-CheckIn-CheckOut.md), [05](05-Denda.md) |
-| [03 Pembayaran](03-Pembayaran.md) | [06](06-Laporan.md) | [01](01-CheckIn-CheckOut.md), [05](05-Denda.md) |
-| [04 Memberships](04-Memberships.md) | [06](06-Laporan.md) | [01](01-CheckIn-CheckOut.md) |
-| [05 Denda](05-Denda.md) | [02](02-Tarif-Kalkulasi.md), [03](03-Pembayaran.md) | [01](01-CheckIn-CheckOut.md) |
-| [06 Laporan](06-Laporan.md) | - | [01](01-CheckIn-CheckOut.md), [03](03-Pembayaran.md), [04](04-Memberships.md) |
-
 ## Aturan Lintas Modul
 
 Aturan berikut berlaku untuk seluruh modul dan tidak dibuat sebagai modul tersendiri:
