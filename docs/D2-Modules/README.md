@@ -1,4 +1,4 @@
-# ParkirPintar Dokumentasi Modul
+# ParkirPintar — Dokumentasi Modul
 
 Dokumen ini memuat daftar modul sistem parkir ParkirPintar. Sistem mencatat kendaraan masuk dan keluar melalui tiket QR atau kartu member, menghitung tarif per jam, memproses pembayaran, dan mengelola keanggotaan. Acuan kebutuhan ada di [D1-problem-statement.md](../D1-problem-statement.md).
 
@@ -31,34 +31,39 @@ docs/
 | 05 | Denda | [05-Denda.md](05-Denda.md) | Penanganan tiket hilang dan penetapan denda |
 | 06 | Laporan | [06-Laporan.md](06-Laporan.md) | Kapasitas real-time, dashboard, dan laporan pendapatan |
 
+## Ketergantungan Antar Modul
+
+Tabel berikut menunjukkan modul yang memanggil atau mengirim data ke modul lain. Klik nama modul tujuan untuk membuka dokumentasinya.
+
+| No | Modul Asal | Terhubung ke | Keterangan Hubungan |
+|----|------------|--------------|---------------------|
+| 1 | [01 Check-In & Check-Out](01-CheckIn-CheckOut.md) | [02 Tarif & Kalkulasi](02-Tarif-Kalkulasi.md) | Meminta perhitungan biaya saat kendaraan keluar |
+| 2 | [01 Check-In & Check-Out](01-CheckIn-CheckOut.md) | [03 Pembayaran](03-Pembayaran.md) | Meneruskan tagihan untuk diproses pembayarannya |
+| 3 | [01 Check-In & Check-Out](01-CheckIn-CheckOut.md) | [04 Memberships](04-Memberships.md) | Meminta validasi status dan masa berlaku kartu member |
+| 4 | [01 Check-In & Check-Out](01-CheckIn-CheckOut.md) | [05 Denda](05-Denda.md) | Meneruskan kasus tiket hilang atau rusak |
+| 5 | [01 Check-In & Check-Out](01-CheckIn-CheckOut.md) | [06 Laporan](06-Laporan.md) | Mengirim data kendaraan masuk dan keluar |
+| 6 | [03 Pembayaran](03-Pembayaran.md) | [06 Laporan](06-Laporan.md) | Mengirim data pembayaran lunas dan rekonsiliasi shift |
+| 7 | [04 Memberships](04-Memberships.md) | [06 Laporan](06-Laporan.md) | Mengirim data member aktif, kedaluwarsa, dan nonaktif |
+| 8 | [05 Denda](05-Denda.md) | [02 Tarif & Kalkulasi](02-Tarif-Kalkulasi.md) | Menggunakan tarif dasar untuk menghitung denda |
+| 9 | [05 Denda](05-Denda.md) | [03 Pembayaran](03-Pembayaran.md) | Meneruskan tagihan denda untuk dibayar |
+
+### Ringkasan per Modul
+
+| Modul | Memanggil | Dipanggil oleh |
+|-------|-----------|----------------|
+| [01 Check-In & Check-Out](01-CheckIn-CheckOut.md) | [02](02-Tarif-Kalkulasi.md), [03](03-Pembayaran.md), [04](04-Memberships.md), [05](05-Denda.md), [06](06-Laporan.md) | - |
+| [02 Tarif & Kalkulasi](02-Tarif-Kalkulasi.md) | - | [01](01-CheckIn-CheckOut.md), [05](05-Denda.md) |
+| [03 Pembayaran](03-Pembayaran.md) | [06](06-Laporan.md) | [01](01-CheckIn-CheckOut.md), [05](05-Denda.md) |
+| [04 Memberships](04-Memberships.md) | [06](06-Laporan.md) | [01](01-CheckIn-CheckOut.md) |
+| [05 Denda](05-Denda.md) | [02](02-Tarif-Kalkulasi.md), [03](03-Pembayaran.md) | [01](01-CheckIn-CheckOut.md) |
+| [06 Laporan](06-Laporan.md) | - | [01](01-CheckIn-CheckOut.md), [03](03-Pembayaran.md), [04](04-Memberships.md) |
+
 ## Aturan Lintas Modul
 
 Aturan berikut berlaku untuk seluruh modul dan tidak dibuat sebagai modul tersendiri:
 
 - **Hak akses per peran.** Pengunjung dan member hanya menggunakan tiket atau kartu. Operator memproses transaksi dan shift miliknya. Admin mengatur tarif, member, akun, dan laporan.
 - **Satu transaksi aktif per kendaraan.** Angka pada laporan, kapasitas, dan setoran dibaca dari transaksi yang sama.
-
-## Diagram Hubungan Antar Modul
-
-```mermaid
-flowchart LR
-    M01[01 Check-In & Check-Out]
-    M02[02 Tarif & Kalkulasi]
-    M03[03 Pembayaran]
-    M04[04 Memberships]
-    M05[05 Denda]
-    M06[06 Laporan]
-
-    M01 -->|hitung biaya| M02
-    M01 -->|validasi kartu| M04
-    M01 -->|tiket hilang| M05
-    M01 -->|tagihan| M03
-    M05 -->|tarif dasar| M02
-    M05 -->|tagihan denda| M03
-    M01 -->|data masuk & keluar| M06
-    M03 -->|data pembayaran| M06
-    M04 -->|data member| M06
-```
 
 ## Ruang Lingkup di Luar Sistem
 
