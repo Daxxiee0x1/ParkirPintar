@@ -1,4 +1,4 @@
-# 05 - Denda
+# 05 Denda
 
 ## Tujuan
 
