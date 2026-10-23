@@ -1,4 +1,4 @@
-# 01 — Autentikasi & Hak Akses
+# 01 - Autentikasi & Hak Akses
 
 ## Tujuan
 
