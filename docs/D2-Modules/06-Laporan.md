@@ -21,7 +21,11 @@ Memberikan pengelola data tentang kapasitas, pendapatan, dan okupansi, sehingga 
 
 ## Ketergantungan
 
-- Membaca data dari modul 01, 03, dan 04.
+| No | Terhubung ke | Arah | Keterangan |
+|----|--------------|------|------------|
+| 1 | [01 Check In & Check Out](01-CheckIn-CheckOut.md) | Membaca | Data kendaraan masuk dan keluar |
+| 2 | [03 Pembayaran](03-Pembayaran.md) | Membaca | Data pembayaran |
+| 3 | [04 Memberships](04-Memberships.md) | Membaca | Data member |
 
 ## Alur Utama
 
