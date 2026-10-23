@@ -33,7 +33,6 @@ Selain itu, pengelola tidak memiliki data yang akurat tentang tingkat okupansi, 
 - Penanganan kasus khusus: tiket hilang dan denda.
 - Pemantauan kapasitas dan jumlah kendaraan di dalam area secara real-time.
 - Dashboard dan laporan transaksi, pendapatan, serta okupansi (harian, mingguan, bulanan).
-- Manajemen akun dan hak akses per peran (pengunjung, operator, admin).
 
 ### Yang TIDAK dikerjakan
 
