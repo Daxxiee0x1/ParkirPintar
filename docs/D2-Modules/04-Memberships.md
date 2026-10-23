@@ -20,8 +20,10 @@ Mengelola kartu member dari pendaftaran hingga penonaktifan, sehingga masa berla
 
 ## Ketergantungan
 
-- Dipanggil oleh modul 01 untuk validasi.
-- Mengirim data member ke modul 06.
+| No | Terhubung ke | Arah | Keterangan |
+|----|--------------|------|------------|
+| 1 | [01 Check In & Check Out](01-CheckIn-CheckOut.md) | Dipanggil | Validasi status kartu saat keluar |
+| 2 | [06 Laporan](06-Laporan.md) | Mengirim | Data member aktif, kedaluwarsa, dan nonaktif |
 
 ## Alur Utama
 
