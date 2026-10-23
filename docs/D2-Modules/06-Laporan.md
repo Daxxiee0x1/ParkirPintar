@@ -1,4 +1,4 @@
-# 06 - Laporan
+# 06 Laporan
 
 ## Tujuan
 
