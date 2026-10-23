@@ -19,9 +19,11 @@ Menangani tiket hilang dengan aturan yang jelas dan tercatat, sehingga operator 
 
 ## Ketergantungan
 
-- Dipanggil oleh modul 01 saat tiket hilang.
-- Menggunakan modul 02 untuk tarif dasar.
-- Mengirim tagihan denda ke modul 03.
+| No | Terhubung ke | Arah | Keterangan |
+|----|--------------|------|------------|
+| 1 | [01 Check In & Check Out](01-CheckIn-CheckOut.md) | Dipanggil | Kasus tiket hilang atau rusak |
+| 2 | [02 Tarif & Kalkulasi](02-Tarif-Kalkulasi.md) | Memanggil | Tarif dasar untuk denda |
+| 3 | [03 Pembayaran](03-Pembayaran.md) | Mengirim | Tagihan denda |
 
 ## Alur Utama
 
