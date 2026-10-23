@@ -1,4 +1,4 @@
-# 03 - Pembayaran
+# 03 Pembayaran
 
 ## Tujuan
 
