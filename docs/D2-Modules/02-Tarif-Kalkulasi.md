@@ -19,8 +19,11 @@ Menghitung biaya parkir secara otomatis dan konsisten, sehingga mengurangi kesal
 
 ## Ketergantungan
 
-- Dipanggil oleh modul 01 (biaya keluar) dan modul 05 (tarif dasar denda).
-- Hasilnya menjadi tagihan di modul 03.
+| No | Terhubung ke | Arah | Keterangan |
+|----|--------------|------|------------|
+| 1 | [01 Check In & Check Out](01-CheckIn-CheckOut.md) | Dipanggil | Biaya saat kendaraan keluar |
+| 2 | [05 Denda](05-Denda.md) | Dipanggil | Tarif dasar untuk menghitung denda |
+| 3 | [03 Pembayaran](03-Pembayaran.md) | Mengirim | Hasil perhitungan sebagai tagihan |
 
 ## Alur Utama
 
