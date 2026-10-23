@@ -22,8 +22,13 @@ Mencatat kendaraan yang masuk, menerbitkan tiket QR, lalu memvalidasi tiket atau
 
 ## Ketergantungan
 
-- Memanggil modul 02 untuk biaya, modul 04 untuk validasi kartu, dan modul 05 untuk tiket hilang.
-- Meneruskan tagihan ke modul 03.
+| No | Terhubung ke | Arah | Keterangan |
+|----|--------------|------|------------|
+| 1 | [02 Tarif & Kalkulasi](02-Tarif-Kalkulasi.md) | Memanggil | Meminta perhitungan biaya saat keluar |
+| 2 | [03 Pembayaran](03-Pembayaran.md) | Mengirim | Meneruskan tagihan untuk dibayar |
+| 3 | [04 Memberships](04-Memberships.md) | Memanggil | Validasi status dan masa berlaku kartu |
+| 4 | [05 Denda](05-Denda.md) | Memanggil | Penanganan kasus tiket hilang |
+| 5 | [06 Laporan](06-Laporan.md) | Mengirim | Data kendaraan masuk dan keluar |
 
 ## Alur Utama
 
