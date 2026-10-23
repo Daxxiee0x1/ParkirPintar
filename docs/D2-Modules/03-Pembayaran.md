@@ -21,8 +21,11 @@ Memastikan setiap pembayaran tercatat dan uang tunai yang disetor operator sesua
 
 ## Ketergantungan
 
-- Menerima tagihan dari modul 01 dan modul 05.
-- Mengirim data pembayaran ke modul 06.
+| No | Terhubung ke | Arah | Keterangan |
+|----|--------------|------|------------|
+| 1 | [01 Check In & Check Out](01-CheckIn-CheckOut.md) | Menerima | Tagihan saat kendaraan keluar |
+| 2 | [05 Denda](05-Denda.md) | Menerima | Tagihan denda |
+| 3 | [06 Laporan](06-Laporan.md) | Mengirim | Data pembayaran lunas dan rekonsiliasi shift |
 
 ## Alur Utama
 
