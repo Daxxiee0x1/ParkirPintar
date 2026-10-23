@@ -16,10 +16,10 @@ Selain itu, pengelola tidak memiliki data yang akurat tentang tingkat okupansi, 
 
 | Aktor | Peran |
 |---|---|
-| **Pengguna Parkir (Pengunjung)** | Mengambil tiket QR saat masuk, menunjukkan tiket saat keluar, dan membayar tarif parkir sesuai durasi. |
-| **Member** | Mendaftar dan memperpanjang keanggotaan, masuk dan keluar menggunakan kartu member tanpa tiket, serta melihat masa berlaku dan riwayat parkirnya. |
-| **Petugas Parkir (Operator)** | Memindai tiket atau kartu di gerbang, membantu transaksi bermasalah (tiket hilang, pembayaran gagal), menerima pembayaran tunai, dan menutup shift. |
-| **Admin / Pengelola** | Mengatur tarif, mengelola data member dan kartu, memantau kapasitas serta transaksi, dan melihat laporan pendapatan. |
+| **Pengguna Parkir (Pengunjung)** | Mengambil tiket QR saat masuk , scan tiket saat keluar, dan membayar tarif parkir sesuai durasi. |
+| **Member** | masuk dan keluar menggunakan kartu member tanpa tiket, serta melihat masa berlaku dan riwayat parkirnya. |
+| **Petugas Parkir (Operator)** | Membantu transaksi bermasalah (tiket hilang, pembayaran gagal), menerima pembayaran tunai, dan menutup shift. |
+| **Admin / Pengelola** | Mengatur tarif, mendaftar, memperpanjang keanggotaan, mengelola data member dan kartu, memantau kapasitas serta transaksi, dan melihat laporan pendapatan. |
 
 ## 4. Scope
 
