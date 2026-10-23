@@ -1,4 +1,4 @@
-# 01 - Check In & Check Out
+# 01 Check In & Check Out
 
 ## Tujuan
 
