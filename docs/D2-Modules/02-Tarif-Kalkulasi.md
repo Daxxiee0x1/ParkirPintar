@@ -1,4 +1,4 @@
-# 02 - Tarif & Kalkulasi
+# 02 Tarif & Kalkulasi
 
 ## Tujuan
 
