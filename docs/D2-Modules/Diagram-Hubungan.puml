@@ -1,1 +1,28 @@
+@startuml
+title ParkirPintar - Hubungan Antar Modul
 
+skinparam componentStyle rectangle
+skinparam shadowing false
+skinparam linetype ortho
+
+component "01 Check In & Check Out" as M01
+component "02 Tarif & Kalkulasi" as M02
+component "03 Pembayaran" as M03
+component "04 Memberships" as M04
+component "05 Denda" as M05
+component "06 Laporan" as M06
+
+M01 --> M02 : hitung biaya
+M01 --> M04 : validasi kartu member
+M01 --> M05 : tiket hilang
+M01 --> M03 : tagihan
+M01 --> M06 : data masuk & keluar
+
+M05 --> M02 : tarif dasar
+M05 --> M03 : tagihan denda
+
+M02 --> M03 : hasil perhitungan
+
+M03 --> M06 : data pembayaran
+M04 --> M06 : data member
+@enduml
