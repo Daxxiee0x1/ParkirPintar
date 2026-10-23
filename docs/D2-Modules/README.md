@@ -1,4 +1,4 @@
-# ParkirPintar — Dokumentasi Modul
+# ParkirPintar Dokumentasi Modul
 
 Dokumen ini memuat daftar modul sistem parkir ParkirPintar. Sistem mencatat kendaraan masuk dan keluar melalui tiket QR atau kartu member, menghitung tarif per jam, memproses pembayaran, dan mengelola keanggotaan. Acuan kebutuhan ada di [D1-problem-statement.md](../D1-problem-statement.md).
 
