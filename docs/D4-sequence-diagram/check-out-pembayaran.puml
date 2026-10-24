@@ -1,0 +1,19 @@
+int led = 9;
+int potpin = A5;
+int potValue;
+int ledValue;
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(led, OUTPUT);
+
+}
+
+void loop() {
+  // put your main code here, to run re   peatedly:
+  potValue = analogRead(potpin);
+  ledValue = map(potValue, 0, 1023, 0, 255);
+
+  analogWrite(led, ledValue);
+
+}
