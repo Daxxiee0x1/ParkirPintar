@@ -1,19 +1,70 @@
-int led = 9;
-int potpin = A5;
-int potValue;
-int ledValue;
+@startuml
+title Skenario 2 - Check-Out Pengunjung Umum: Hitung Tarif dan Pembayaran
+skinparam shadowing false
+skinparam sequenceMessageAlign left
+skinparam responseMessageBelowArrow true
+skinparam maxMessageSize 220
+autonumber
 
-void setup() {
-  // put your setup code here, to run once:
-  pinMode(led, OUTPUT);
+actor "Pengunjung" as P
+actor "Operator" as O
+participant "UI Operator\n(Gerbang Keluar)" as UI
+participant "Modul 01\nCheck In & Check Out" as M01
+participant "Modul 02\nTarif & Kalkulasi" as M02
+participant "Modul 03\nPembayaran" as M03
+participant "Penyedia\nQRIS" as QR
+participant "Modul 06\nLaporan" as M06
+participant "Palang\n(perangkat)" as G
 
-}
+P -> O : Serahkan tiket QR di gerbang keluar
+O -> UI : Pindai tiket QR
+UI -> M01 : prosesKeluar(kodeTiket)
+M01 -> M01 : Validasi tiket (terdaftar, aktif, belum dipakai)
 
-void loop() {
-  // put your main code here, to run re   peatedly:
-  potValue = analogRead(potpin);
-  ledValue = map(potValue, 0, 1023, 0, 255);
+alt Tiket tidak valid atau sudah dipakai
+  M01 --> UI : Ditolak: tiket tidak valid
+  UI --> O : Tampilkan pesan kesalahan
+  O -> O : Proses manual dan catat alasan
+else Tiket valid
+  M01 -> M02 : hitungBiaya(waktuMasuk, waktuKeluar)
+  M02 -> M02 : Ambil tarif berlaku saat masuk,\ndurasi x tarif per jam, batasi tarif maksimum harian
+  M02 --> M01 : Rincian biaya
+  M01 -> M03 : buatTagihan(transaksi, biaya)
+  M03 --> M01 : Tagihan
+  M01 --> UI : Rincian biaya
+  UI --> O : Tampilkan total yang harus dibayar
+  O --> P : Informasikan total
 
-  analogWrite(led, ledValue);
+  alt Pembayaran tunai
+    P -> O : Serahkan uang tunai
+    O -> UI : Konfirmasi penerimaan tunai
+    UI -> M03 : catatTunai(tagihan, nominal)
+    M03 -> M03 : Pastikan shift operator aktif
+  else Pembayaran QRIS
+    UI -> M03 : mintaQRIS(tagihan)
+    M03 -> QR : buatPermintaanPembayaran(tagihan)
+    QR --> M03 : Kode QRIS
+    M03 --> UI : Kode QRIS
+    UI --> P : Tampilkan kode QRIS
+    P -> QR : Pindai dan bayar
+    QR --> M03 : Notifikasi hasil pembayaran
+  end
 
-}
+  alt Pembayaran berhasil
+    M03 -> M03 : Ubah status transaksi menjadi lunas
+    M03 --> M01 : Transaksi lunas
+    M01 -> M01 : Tutup transaksi, tandai tiket sudah dipakai
+    M01 -> G : bukaPalang()
+    G --> M01 : Palang terbuka
+    M01 -> M06 : catatKendaraanKeluar(transaksi)
+    M06 --> M01 : Tercatat
+    M03 -> M06 : catatPembayaranLunas(transaksi)
+    M06 --> M03 : Tercatat
+    M01 --> UI : Selesai
+    UI --> O : Tampilkan konfirmasi keluar
+  else Pembayaran gagal
+    M03 --> UI : Gagal (status tetap belum lunas)
+    UI --> O : Pembayaran belum selesai, ulangi atau ganti metode
+  end
+end
+@enduml
