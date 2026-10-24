@@ -1,0 +1,78 @@
+@startuml use-case
+title Use Case Diagram - ParkirPintar
+
+left to right direction
+skinparam shadowing false
+skinparam nodesep 40
+skinparam ranksep 80
+skinparam usecase {
+  BorderColor #555555
+  ArrowColor #555555
+  FontColor #000000
+}
+
+actor "Pengunjung" as PG
+actor "Member" as MB
+actor "Operator" as OP
+actor "Admin / Pengelola" as AD
+
+rectangle "Sistem ParkirPintar" {
+  usecase "Check-in Kendaraan" as UC1 #DCEBFA
+  usecase "Check-out Kendaraan" as UC2 #DCEBFA
+
+  usecase "Hitung Tarif" as UC3 #DDF2DD
+  usecase "Atur Tarif" as UC4 #DDF2DD
+
+  usecase "Bayar Parkir" as UC5 #FDE5CC
+  usecase "Kelola Shift & Setoran" as UC6 #FDE5CC
+
+  usecase "Validasi Kartu Member" as UC7 #FFF3CC
+  usecase "Kelola Member & Kartu" as UC8 #FFF3CC
+
+  usecase "Tangani Tiket Hilang" as UC9 #F9D6D6
+  usecase "Putuskan Kasus\nTidak Terverifikasi" as UC10 #F9D6D6
+
+  usecase "Lihat Dashboard\nKapasitas" as UC11 #EBDDF5
+  usecase "Lihat Laporan\nPendapatan" as UC12 #EBDDF5
+}
+
+PG -- UC1
+PG -- UC2
+MB -- UC1
+MB -- UC2
+OP -- UC1
+OP -- UC2
+OP -- UC9
+OP -- UC6
+
+UC4 -- AD
+UC8 -- AD
+UC10 -- AD
+UC11 -- AD
+UC12 -- AD
+
+UC7 .up.> UC1 : <<extend>>
+UC5 .up.> UC2 : <<extend>>
+UC9 .left.> UC2 : <<extend>>
+UC5 .down.> UC3 : <<include>>
+
+UC1 -[hidden]right- UC2
+UC2 -[hidden]right- UC9
+UC9 -[hidden]right- UC6
+UC3 -[hidden]down- UC4
+UC4 -[hidden]right- UC8
+UC8 -[hidden]right- UC10
+UC10 -[hidden]right- UC11
+UC11 -[hidden]right- UC12
+
+legend right
+  |= Warna |= Modul |
+  |<#DCEBFA>   | 01 Check In & Check Out |
+  |<#DDF2DD>   | 02 Tarif & Kalkulasi |
+  |<#FDE5CC>   | 03 Pembayaran |
+  |<#FFF3CC>   | 04 Memberships |
+  |<#F9D6D6>   | 05 Denda |
+  |<#EBDDF5>   | 06 Laporan |
+endlegend
+
+@enduml
