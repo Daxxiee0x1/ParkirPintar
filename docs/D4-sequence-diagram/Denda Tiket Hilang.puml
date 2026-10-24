@@ -1,0 +1,66 @@
+@startuml skenario-3-tiket-hilang-denda
+title Skenario 3 - Tiket Hilang dan Denda
+skinparam shadowing false
+skinparam sequenceMessageAlign left
+skinparam responseMessageBelowArrow true
+skinparam maxMessageSize 220
+autonumber
+
+actor "Pengunjung" as P
+actor "Operator" as O
+actor "Admin" as A
+participant "UI Operator\n(Gerbang Keluar)" as UI
+participant "UI Admin\n(Dashboard)" as UIA
+participant "Modul 01\nCheck In & Check Out" as M01
+participant "Modul 05\nDenda" as M05
+participant "Modul 02\nTarif & Kalkulasi" as M02
+participant "Modul 03\nPembayaran" as M03
+participant "Modul 06\nLaporan" as M06
+participant "Palang\n(perangkat)" as G
+
+P -> O : Laporkan tiket hilang atau rusak
+O -> UI : Pilih kasus tiket hilang, input plat nomor dan alasan
+UI -> M01 : laporTiketHilang(platNomor, alasan)
+M01 -> M05 : tanganiKasus(platNomor, alasan)
+M05 -> M05 : Catat kasus dan alasan (tidak dapat dihapus)
+M05 -> M01 : cariTransaksiAktif(platNomor)
+M01 --> M05 : Transaksi aktif / tidak ditemukan
+
+alt Plat nomor tidak cocok dengan transaksi aktif
+  M05 --> UI : Kasus tidak dapat diverifikasi
+  UI --> O : Tampilkan pesan, operator tidak boleh menyelesaikan sepihak
+  M05 -> UIA : tandaiUntukAdmin(kasus)
+  UIA --> A : Tampilkan kasus yang menunggu keputusan
+  A -> UIA : Tinjau dan putuskan kasus
+  UIA -> M05 : simpanKeputusan(kasus, keputusan)
+  M05 --> UIA : Keputusan tersimpan
+else Plat nomor cocok dengan transaksi aktif
+  M05 -> M02 : hitungBiaya(waktuMasuk, waktuSekarang)
+  M02 --> M05 : Biaya parkir
+  M05 -> M05 : Total = biaya parkir + denda\n(nilai denda dari pengaturan admin)
+  M05 -> M03 : buatTagihan(transaksi, total)
+  M03 --> M05 : Tagihan
+  M05 --> UI : Rincian biaya dan denda
+  UI --> O : Tampilkan total
+  O --> P : Informasikan total yang harus dibayar
+  P -> O : Bayar total (tunai / QRIS)
+  O -> UI : Konfirmasi pembayaran
+  UI -> M03 : prosesPembayaran(tagihan, metode)
+
+  alt Pembayaran berhasil
+    M03 --> M05 : Lunas
+    M05 -> M01 : tutupTransaksi(transaksi)
+    M01 -> G : bukaPalang()
+    G --> M01 : Palang terbuka
+    M01 -> M06 : catatKendaraanKeluar(transaksi)
+    M06 --> M01 : Tercatat
+    M03 -> M06 : catatPembayaranLunas(transaksi)
+    M06 --> M03 : Tercatat
+    M01 --> UI : Selesai
+    UI --> O : Tampilkan konfirmasi keluar
+  else Pembayaran gagal
+    M03 --> UI : Gagal (belum lunas)
+    UI --> O : Palang tetap tertutup, ulangi atau ganti metode
+  end
+end
+@enduml

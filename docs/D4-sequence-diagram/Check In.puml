@@ -1,0 +1,50 @@
+@startuml skenario-1-check-in
+title Skenario 1 - Check-In Kendaraan Masuk (Tiket QR dan Kartu Member)
+skinparam shadowing false
+skinparam sequenceMessageAlign left
+skinparam responseMessageBelowArrow true
+skinparam maxMessageSize 220
+autonumber
+
+actor "Pengunjung /\nMember" as P
+actor "Operator" as O
+participant "UI Operator\n(Gerbang Masuk)" as UI
+participant "Modul 01\nCheck In & Check Out" as M01
+participant "Modul 04\nMemberships" as M04
+participant "Modul 06\nLaporan" as M06
+participant "Palang\n(perangkat)" as G
+
+P -> O : Tiba di gerbang masuk
+O -> UI : Input plat nomor (dan pindai kartu member bila ada)
+UI -> M01 : prosesMasuk(platNomor, nomorKartu?)
+M01 -> M01 : Cek transaksi aktif untuk plat nomor
+
+alt Transaksi aktif sudah ada (kendaraan sudah tercatat di dalam)
+  M01 --> UI : Ditolak: kendaraan sudah tercatat masuk
+  UI --> O : Tampilkan pesan penolakan
+  O --> P : Informasikan kendaraan tidak dapat masuk
+else Belum ada transaksi aktif
+  opt Kartu member dipindai
+    M01 -> M04 : validasiKartu(nomorKartu)
+    M04 -> M04 : Cek status kartu dan tanggal berakhir
+    M04 --> M01 : Status kartu (aktif / nonaktif / kedaluwarsa)
+  end
+
+  alt Kartu member aktif
+    M01 -> M01 : Buat transaksi tipe member (tanpa tiket)
+    M01 --> UI : Masuk diizinkan (member)
+  else Tanpa kartu, atau kartu nonaktif / kedaluwarsa
+    M01 -> M01 : Buat transaksi pengunjung umum,\nterbitkan tiket QR dengan kode unik
+    M01 --> UI : Masuk diizinkan + data tiket QR
+    UI --> O : Tampilkan / cetak tiket QR
+    O --> P : Serahkan tiket QR
+  end
+
+  M01 -> G : bukaPalang()
+  G --> M01 : Palang terbuka
+  M01 -> M06 : catatKendaraanMasuk(transaksi)
+  M06 --> M01 : Tercatat (okupansi diperbarui)
+  M01 --> UI : Kendaraan masuk tercatat
+  UI --> O : Tampilkan konfirmasi
+end
+@enduml
