@@ -1,7 +1,7 @@
 # D3. Use Case Diagram
 
 ![Use case diagram](https://github.com/Daxxiee0x1/ParkirPintar/blob/docs/use-case-diagram/docs/D3-use-case-diagram/Use%20Case%20DIagram%20-%20ParkirPintar.png)
-Sumber: [use-case.puml](https://github.com/Daxxiee0x1/ParkirPintar/blob/docs/use-case-diagram/docs/D3-use-case-diagram/Use%20Case%20Diagram%20-%20ParkirPintar.puml)
+Sumber: [Use Case Digaram.puml](https://github.com/Daxxiee0x1/ParkirPintar/blob/docs/use-case-diagram/docs/D3-use-case-diagram/Use%20Case%20Diagram%20-%20ParkirPintar.puml)
 
 ## Aktor
 | Aktor | Peran |
