@@ -5,7 +5,6 @@
 | 23 Okt 2026 | Haekal Syahputra (@Daxxiee0x1) | D5 | Membuat struktur repository awal dan membuat file template | 35 menit | PR #1, `c3f2bf7` |
 | 23 Okt 2026 | Aditya Bintoro (@AdityaBintoro) | D5 | Review Pengerjaan Pull Request #1 dan menyetujui struktur repository | 10 menit | PR #1 |
 | 23 Okt 2026 | Ataya Nafis Rizqulah (@Ataya24) | D5 | Review pengerjaan Pull Request #1 dan menyetujui struktur repository | 15 menit | PR #1 |
-| 23 Okt 2026 | Haekal Syahputra (@Daxxiee0x1) | D5 | Review pengerjaan Pull Request #3 dan memberikan saran perubahan untuk perbaikan | 10 menit | PR #3 |
 | 23 Okt 2026 | Aditya Bintoro (@AdityaBintoro) | D1 | Membuat `D1-problem-statement.md` | 35 menit | PR #2 |
 | 23 Okt 2026 | Haekal Syahputra (@Daxxiee0x1) | D5 | Review pengerjaan Pull Request #2 dan memberikan saran perubahan untuk perbaikan | 10 menit | PR #2 |
 | 23 Okt 2026 | Ataya Nafis Rizqulah (@Ataya24) | D5 | Review pengerjaan Pull Request #2 dan memberikan saran perubahan untuk perbaikan | 15 menit | PR #2 |
