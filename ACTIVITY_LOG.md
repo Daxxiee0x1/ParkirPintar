@@ -13,7 +13,6 @@
 | 23 Okt 2026 | Haekal Syahputra (@Daxxiee0x1) | D5 | Review pengerjaan Pull Request #3 dan memberikan saran perubahan untuk perbaikan | 10 menit | PR #3 |
 | 23 Okt 2026 | Aditya Bintoro (@AdityaBintoro) | D5 | Review pengerjaan Pull Request #3 dan memberikan saran perubahan untuk perbaikan | 10 menit | PR #3 |
 | 24 Okt 2026 | Haekal Syahputra (@Daxxiee0x1) | D4 | Membuat sequence diagram Denda Tiket hilang, push puml source dan png | 35 menit | `f40ed67`, `cede201` |
-| 24 Okt 2026 | Ataya Nafis Rizqulah (@Ataya24) | D4 | Membuat sequence diagram Check In, push puml source dan png | 42 menit | `382c03b` |
 | 24 Okt 2026 | Aditya Bintoro (@AdityaBintoro) | D4 | Membuat sequence diagram Check Out Pembayaran, push puml source dan png dan membuka Pull Request #6 | 40 menit | PR #6, `d2c4fc3`, `bcb698f` |
 | 24 Okt 2026 | Haekal Syahputra (@Daxxiee0x1) | D5 | Review Pengerjaan Pull Request #6 dan menyetujui pull request #6 | 10 menit | `f40ed67`, `cede201` |
 
