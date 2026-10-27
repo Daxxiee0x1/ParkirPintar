@@ -1,6 +1,6 @@
 from datetime import datetime
 import pytest
-from parkir import hitung_tarif_parkir
+from tarif_parkir import hitung_tarif_parkir
 
 TARIF_DEFAULT = 5000
 MAX_TARIF = 30000
