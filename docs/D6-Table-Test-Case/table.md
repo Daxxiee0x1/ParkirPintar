@@ -20,7 +20,7 @@ Skenario ini menguji fungsi penghitungan biaya parkir pada modul **02 Tarif & Ka
 | TC-01 | Durasi parkir kurang dari satu jam | Common | Tarif Rp5.000/jam; maksimum Rp30.000/sesi | Masuk pukul 08:00, keluar pukul 08:30 | Durasi dibulatkan menjadi 1 jam. Biaya akhir Rp5.000. |
 | TC-02 | Durasi parkir tidak penuh | Common | Tarif Rp5.000/jam; maksimum Rp30.000/sesi | Masuk pukul 08:00, keluar pukul 10:30 | Durasi dibulatkan menjadi 3 jam. Biaya akhir Rp15.000. |
 | TC-03 | Biaya melebihi tarif maksimum | Common | Tarif Rp5.000/jam; maksimum Rp30.000/sesi | Masuk pukul 08:00, keluar pukul 18:00 | Durasi 10 jam. Biaya normal Rp50.000, sehingga biaya akhir dibatasi menjadi Rp30.000. |
-| TC-04 | Parkir melewati pergantian hari | Common | Tarif Rp5.000/jam; maksimum Rp30.000/sesi | Masuk 27 Okt 2026 pukul 20:00, keluar 28 Okt 2026 pukul 04:00 | Durasi 8 jam. Biaya akhir Rp30.000. Pergantian hari tidak memulai sesi baru. |
+| TC-04 | Durasi parkir tepat mencapai batas tarif maksimum | Common | Tarif Rp5.000/jam; maksimum Rp30.000/sesi | Masuk pukul 07:00, keluar pukul 13:00 | Durasi tepat 6 jam. Biaya normal Rp30.000, biaya akhir pas sesuai batas maksimum Rp30.000. |
 | TC-05 | Tarif berubah setelah kendaraan masuk | Common | Tarif Rp5.000/jam berlaku sebelum 27 Okt 2026 pukul 09:00; tarif baru Rp7.000/jam berlaku mulai pukul 09:00 | Masuk 27 Okt 2026 pukul 08:00, keluar pukul 10:00 | Sistem tetap menggunakan tarif saat masuk, yaitu Rp5.000/jam. Durasi 2 jam, sehingga biaya akhir Rp10.000. |
 
 ## Edge Cases
