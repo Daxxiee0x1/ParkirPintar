@@ -14,6 +14,13 @@ Sistem parkir berbasis tiket QR dan kartu member. Aplikasi ini mencatat kendaraa
 
 | Kode | Deliverable | Link |
 |---|---|---|
+| D1 | Topik & Problem Statement | [docs/D1-problem-statement.md](docs/D1-problem-statement.md) |
+| D2 | Module Breakdown | [docs/D2-Modules/README.md](docs/D2-Modules/README.md) |
+| D3 | Use Case Diagram | [docs/D3-use-case-diagram/README.md](docs/D3-use-case-diagram/README.md) |
+| D4 | Sequence Diagram (3 skenario) | [docs/D4-sequence-diagram/README.md](docs/D4-sequence-diagram/README.md) |
+| D5 | Kolaborasi GitHub & Activity Log | [ACTIVITY_LOG.md](ACTIVITY_LOG.md) |
+| D6 | Test Case Design (skenario penghitungan tarif parkir) | [docs/D6-Table-Test-Case/table.md](docs/D6-Table-Test-Case/table.md) |
+| D7 | Unit-Tested Code | Kode: [src/tarif_parkir.py](src/tarif_parkir.py) · Test: [tests/test_tarif_parkir.py](tests/test_tarif_parkir.py) · Screenshot: [hasil test](docs/images/hasil%20Unit-Tested%20Code.png) |
 
 ## Cara Menjalankan Test
 
