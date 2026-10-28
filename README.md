@@ -51,3 +51,9 @@ ParkirPintar/
 ```
 
 ## Penggunaan AI
+
+| Anggota | AI used | What Was Done |
+|---|---|---|
+| Haekal Syahputra (@Daxxiee0x1) | Claude | Membuat file puml sequence diagram Denda Tiket Hilang dan membuat README.md untuk sequence diagram |
+| Haekal Syahputra (@Daxxiee0x1) | Claude | Membuat file puml Use Case Diagram dan README.md untuk use case diagram|
+| Haekal Syahputra (@Daxxiee0x1) | Claude | Membuat edge cases sesuai modul yang dipilih |
