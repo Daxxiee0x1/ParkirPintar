@@ -17,3 +17,4 @@
 | 24 Okt 2026 | Haekal Syahputra (@Daxxiee0x1) | D5 | Review Pengerjaan Pull Request #6 dan menyetujui pull request #6 | 10 menit | PR #6 |
 | 24 Okt 2026 | Ataya Nafis Rizqulah (@Ataya24) | D5 | Review Pengerjaan Pull Request #6 dan menyetujui pull request #6 | 5 menit | PR #6 |
 | 25 Okt 2026 | Haekal Syahputra (@Daxxiee0x1) | D3 | Membuat use case diagram dan readme file, push source file puml serta imagenya, dan open PR #7 | 46 menit | PR #7, `a0de22a`, `45026da`, `01612c9` |
+| 27 Okt 2026 | Haekal Syahputra (@Daxxiee0x1 | D6 | Membuat Edge Cases di dalam docs/D6-Table-Test-Case | 32 menit | f3fb716 |
