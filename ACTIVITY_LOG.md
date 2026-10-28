@@ -20,3 +20,5 @@
 | 27 Okt 2026 | Haekal Syahputra (@Daxxiee0x1) | D6 | Membuat Edge Cases di dalam docs/D6-Table-Test-Case | 32 menit | `f3fb716` |
 | 27 Okt 2026 | Haekal Syahputra (@Daxxiee0x1) | D6 | Review pengerjaan pull request #9 dan menyetujui pull request #9 | 10 menit | PR #9 |
 | 27 Okt 2026 | Haekal Syahputra (@Daxxiee0x1) | D7 | Review pengerjaan pull request #10 dan memberikan saran perubahan di Pull Request #10 | 25 menit | PR #10 |
+| 28 Okt 2026 | Haekal Syahputra (@Daxxiee0x1) | D5 | Melengkapi README: tabel link deliverable | 15 menit | `b4d656d` |
+| 28 Okt 2026 | Haekal Syahputra (@Daxxiee0x1) | D7 | Membuat `pytest.ini` (`pythonpath = src`, `testpaths = tests`) agar pytest menemukan modul dan file test | 10 menit | `9ae031e` |
