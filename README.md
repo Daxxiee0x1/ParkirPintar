@@ -32,8 +32,11 @@ cd ParkirPintar
 # 2. Install dependensi
 pip install -r requirements.txt
 
-# 3. Jalankan semua test
-pytest
+# 3. Jalankan semua test (ringkas)
+python -m pytest
+
+#4. Jalankan semua test (detail)
+python -m pytest -v
 ```
 
 ## Struktur Repo
