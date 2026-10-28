@@ -2,6 +2,10 @@
 
 Skenario ini menguji fungsi penghitungan biaya parkir pada modul **02 Tarif & Kalkulasi**. Sistem menghitung biaya berdasarkan durasi parkir sejak kendaraan masuk hingga keluar, menggunakan tarif yang berlaku saat kendaraan masuk, kemudian membatasi biaya sesuai tarif maksimum per sesi parkir.
 
+## Cara Memilih Edge Case
+
+Edge case dipilih dengan memeriksa titik-titik tempat fungsi hitung tarif paling mungkin salah, yaitu nilai batas, input tidak valid, dan aturan khusus waktu. Nilai batas diuji pada pembulatan jam (TC-08: 1 jam 1 menit dihitung 2 jam) dan pada tarif maksimum, dengan menguji tepat di batas (TC-09) dan 1 menit sesudahnya (TC-10). Input yang tidak lazim diuji lewat durasi nol (TC-06), waktu keluar sebelum masuk (TC-07), waktu masuk kosong (TC-13), dan format waktu tidak valid (TC-14), agar sistem menolaknya dengan pesan jelas dan tidak menghitung biaya yang salah. Kasus pergantian hari (TC-11 dan TC-12) dipilih karena batas maksimum dihitung per hari kalender, sehingga parkir yang melewati tengah malam bisa menghasilkan biaya berbeda dari perkiraan awal. Terakhir, TC-15 memastikan input yang sama selalu menghasilkan biaya yang sama, sesuai aturan bisnis pada modul Tarif & Kalkulasi.
+
 ## Asumsi
 
 - Tarif parkir contoh: **Rp5.000 per jam**.
